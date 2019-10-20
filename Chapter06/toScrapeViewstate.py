@@ -60,4 +60,4 @@ if __name__ == '__main__':
         quote = finalResponse.find('div.quote span.content').text()
         quoteAuthor = finalResponse.find('div.quote span.author').text()
         message = finalResponse.find('div.quote span.tag').text()
-        print("Quote: ", quote, "\nAuthor: ", quoteAuthor, "\nMessage: ", message)
+        print("Quote: ", quote.encode('utf-8').strip(), "\nAuthor: ", quoteAuthor, "\nMessage: ", message)

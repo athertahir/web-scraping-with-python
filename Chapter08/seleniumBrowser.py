@@ -27,7 +27,7 @@ cookies = driver.get_cookies()
 print("Cookies obtained from python.org")
 print(cookies)
 
-print(driver.page_source)
+print(driver.page_source.encode('utf-8').strip())
 driver.refresh()
 
 driver.get('https://www.google.com')
