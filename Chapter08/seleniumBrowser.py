@@ -1,7 +1,18 @@
 from selenium import webdriver
 import re
-chrome_path='chromedriver'
-driver = webdriver.Chrome(executable_path=chrome_path)
+chrome_path = '/home/scrapbook/tutorial/web-scraping-with-python/Chapter08/chromedriver'
+
+from selenium.webdriver.chrome.options import Options
+
+options = Options()
+options.add_argument("--headless") # Runs Chrome in headless mode.
+options.add_argument('--no-sandbox') # # Bypass OS security model
+options.add_argument('start-maximized')
+options.add_argument('disable-infobars')
+options.add_argument("--disable-extensions")
+driver = webdriver.Chrome(chrome_options=options, executable_path=chrome_path)
+#driver = webdriver.Chrome(executable_path=chrome_path)
+
 print(type(driver))
 
 driver.get('https://www.python.org')

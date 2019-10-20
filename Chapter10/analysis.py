@@ -1,4 +1,5 @@
 import pandas as pd
+%matplotlib notebook
 import matplotlib.pyplot as plt
 
 dataSet = pd.read_csv('bookdetails.csv')

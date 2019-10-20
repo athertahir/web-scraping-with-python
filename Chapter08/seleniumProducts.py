@@ -1,6 +1,17 @@
 from selenium import webdriver
-chrome_path='chromedriver'
-driver = webdriver.Chrome(executable_path=chrome_path)
+chrome_path = '/home/scrapbook/tutorial/web-scraping-with-python/Chapter08/chromedriver'
+
+from selenium.webdriver.chrome.options import Options
+
+options = Options()
+options.add_argument("--headless") # Runs Chrome in headless mode.
+options.add_argument('--no-sandbox') # # Bypass OS security model
+options.add_argument('start-maximized')
+options.add_argument('disable-infobars')
+options.add_argument("--disable-extensions")
+driver = webdriver.Chrome(chrome_options=options, executable_path=chrome_path)
+#driver = webdriver.Chrome(executable_path=chrome_path)
+
 driver.get('http://automationpractice.com')
 print("Current Page URL: ",driver.current_url)
 
