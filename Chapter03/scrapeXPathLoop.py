@@ -41,7 +41,7 @@ while(page<=totalPages):
         image = imagePath(row)[0]
         rating = starRating(row)[0]
     
-        dataSet.append([title,price,availability,image.replace('../../../..',baseUrl),rating.replace('star-rating ','')])
+        dataSet.append([title,price.encode('utf-8').strip(),availability,image.replace('../../../..',baseUrl),rating.replace('star-rating ','')])
 
     page+=1
 

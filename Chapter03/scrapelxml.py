@@ -19,11 +19,10 @@ images = list(map(lambda img:img.replace('../../../..','http://books.toscrape.co
 rating = list(map(lambda rating:rating.replace('star-rating ',''),starRating))
 
 print(title)
-print(price)
 print(stock)
 print(images)
 print(rating)
 
 #Merging all 
-dataset = zip(title,price,stock,images,rating)
+dataset = zip(title,stock,images,rating)
 print(list(dataset))
