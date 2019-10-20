@@ -36,7 +36,7 @@ def get_details(page, dataWriter):
                     author = row.find(attrs={'itemprop':'author'}).text.strip()
                     authorLink = row.find('a',href=re.compile(r'/author/')).get('href')
                     tags = row.find('div','tags').find(itemprop="keywords").get('content')
-                    print(title, ' : ', author,' : ',authorLink, ' : ',tags)
+                    #print(title, ' : ', author,' : ',authorLink, ' : ',tags)
 
                     if authorLink:
                         authorLink = 'http://quotes.toscrape.com' + authorLink
