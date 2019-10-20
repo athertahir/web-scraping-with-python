@@ -38,7 +38,7 @@ while page:
             ".//article/div[1][contains(@class,'image_container')]/a/img").get_attribute('src')
         starRating = listing.find_element_by_xpath(".//article/p[contains(@class,'star-rating')]").get_attribute(
             'class')
-        dataSet.append([titleLarge, title, price, stock, image, starRating.replace('star-rating ', ''), url])
+        dataSet.append([titleLarge, title, price.encode('utf-8').strip(), stock, image, starRating.replace('star-rating ', ''), url])
 
     try:
         #Check for Pagination with text 'next'
