@@ -24,7 +24,7 @@ def get_details(page):
         quotes = response.find('.quote')
         print("\nTotal Quotes found :", quotes.__len__(), ' in Page: ', pageNo)
         for quote in quotes.items():
-            title = quote.find('[itemprop="text"]:first').text()
+            title = quote.find('[itemprop="text"]:first').text().encode('utf-8').strip()
             author = quote.find('[itemprop="author"]:first').text()
             authorLink = quote.find('a[href*="/author/"]:first').attr('href')
             tags = quote.find('.tags [itemprop="keywords"]').attr('content')

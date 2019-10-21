@@ -13,17 +13,17 @@ def get_details(page):
     """read 'page' url and append list of queried items to dataSet"""
     response = read_url(page)
 
-    articles = response.find('.ibm--card > a.ibm--card__block_link')
+    articles = response.find('.developer--card > a.developer--card__block_link')
     print("\nTotal articles found :", articles.__len__(), ' in Page: ', page)
     for article in articles.items():
         link = article.attr('href')
-        articlebody = article.find('div.ibm--card__body')
-        adate = articlebody.find('h5 > .ibm--card__date').text()
-        articlebody.find('h5 > .ibm--card__date').remove()
+        articlebody = article.find('div.developer--card__body')
+        adate = articlebody.find('h5 > .developer--card__date').text()
+        articlebody.find('h5 > .developer--card__date').remove()
         atype = articlebody.find('h5').text().strip()
-        title = articlebody.find('h3.ibm--card__title').text().encode('utf-8')
-        excerpt = articlebody.find('p.ibm--card__excerpt').text().encode('utf-8')
-        category = article.find('div.ibm--card__bottom > p.cpt-byline__categories span')
+        title = articlebody.find('h3.developer--card__title').text().encode('utf-8')
+        excerpt = articlebody.find('p.developer--card__excerpt').text().encode('utf-8')
+        category = article.find('div.developer--card__bottom > p.cpt-byline__categories span')
         if link:
             link = str(link).replace('/announcements/', sourceUrl)
             categories = [span.text for span in category if span.text != '+']

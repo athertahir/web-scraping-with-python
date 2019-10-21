@@ -1,4 +1,5 @@
 from pyquery import PyQuery as pq
+import re 
 
 if __name__ == '__main__':
     # reading file
@@ -12,6 +13,7 @@ print("Children Length: ",urlXML.children().__len__())
 print("First Children: ", urlXML.children().eq(0))
 print("Inner Child/First Children: ", urlXML.children().children().eq(0))
 
+dataSet=list()
 
 for url in urlXML.remove_namespaces().children().find('loc:contains("blog")').items():
     dataSet.append(url.text())
